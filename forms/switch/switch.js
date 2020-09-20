@@ -1,7 +1,7 @@
-/*
 //defined variables so that a persons name and state they live in can be entered
 let firstName = prompt("Enter your first name:") 
-let stateName = prompt("Enter the abbreviation of the state you are from:")  
+
+let stateName = prompt("Enter the abbreviation of the state you are from:")  
 
 //This capatilizes the abrivated states if it is not entered with capitals
 let string = stateName
@@ -16,17 +16,21 @@ let responses = ["Wear a warm coat, hat, scarf and gloves.", "Wear a warm coat b
 //This capitlizes the first letter of a first name when it is entered
 let nameUpper = firstName.charAt(0).toUpperCase()+firstName.slice(1)
 
-//This if else statement determines based on the state and temp. what message will appear to the user
+//This switch statement determines based on the state and temp. what message will appear to the user
 //The message box pulls the correct response from the array that is needed based on the information that the user enteres and displays the message to the user
-if (result == "NE" && stateTemp < 32) {
-  NSB.MsgBox(`${nameUpper}, ${responses[0]}`);
-} else if (result == "NE" && stateTemp > 32 && stateTemp <= 50) {
-   NSB.MsgBox(`${nameUpper}, ${responses[1]}`);
-} else if (result == "FL" && stateTemp >= 32 && stateTemp <= 50) {
-  NSB.MsgBox(`${nameUpper}, ${responses[2]}`);
-} else if (result == "FL" && stateTemp >= 50 && stateTemp <= 70) {
-   NSB.MsgBox(`${nameUpper}, ${responses[3]}`);
- } else {
-   NSB.MsgBox(`${nameUpper}, ${responses[4]}`)
-}
-*/
+switch (true) {
+      case (result == 'NE' && stateTemp < 32):
+           NSB.MsgBox(`${nameUpper}, ${responses[0]}`);
+          break
+      case (result == 'NE' && stateTemp >= 32 && stateTemp <= 50 ):
+          NSB.MsgBox(`${nameUpper}, ${responses[1]}`);
+          break
+       case (result == 'FL' && stateTemp >= 32 && stateTemp <= 50):
+           NSB.MsgBox(`${nameUpper}, ${responses[2]}`);
+          break
+          case (result == 'FL' && stateTemp >= 50 && stateTemp <= 70):
+          NSB.MsgBox(`${nameUpper}, ${responses[3]}`);
+          break
+          default:
+          NSB.MsgBox(`${nameUpper}, ${responses[4]}`);
+          }
